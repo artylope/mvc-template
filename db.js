@@ -35,7 +35,7 @@ if( process.env.DATABASE_URL ){
   configs = {
     user: 'yixin',
     host: '127.0.0.1',
-    database: 'schooldb',
+    database: 'tunr_db',
     port: 5432
   };
 }
@@ -66,7 +66,10 @@ const allPokemonModelsFunction = require('./models/pokemon');
 const pokemonModelsObject = allPokemonModelsFunction( pool );
 
 const allStudentsModelsFunction = require('./models/pokemon');
-const studentsModelsObject = allStudentsModelsFunction( pool );
+const studentsModelsObject = allStudentsModelsFunction( pool);
+
+const allSongsModelsFunction = require('./models/songs');
+const songsModelsObject = allSongsModelsFunction( pool );
 
 
 
@@ -98,5 +101,6 @@ module.exports = {
 
   // users: userModelsObject,
   pokemon: pokemonModelsObject,
-  students: studentsModelsObject
+  students: studentsModelsObject,
+  songs: songsModelsObject
 };

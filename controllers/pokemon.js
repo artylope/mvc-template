@@ -18,7 +18,27 @@ module.exports = (db) => {
       });
   };
 
+  let songsControllerCallback = (request, response) => {
+      db.songs.getAll((error, songs) => {
+        response.render('pokemon/songs', { songs });
+      });
+  };
 
+
+  let songControllerCallback = (request, response) => {
+
+      var songId = request.params.id ;
+      console.log(songId)
+
+      db.songs.getAll((error, songs) => {
+
+        var data = {
+          song : songs[songId]
+        }
+        response.render('pokemon/song', data);
+        // response.send(data);
+      });
+  };
 
   /**
    * ===========================================
@@ -28,6 +48,8 @@ module.exports = (db) => {
   return {
     index: indexControllerCallback,
     home: homeControllerCallback,
+    songs: songsControllerCallback,
+    song: songControllerCallback
   };
 
 }
