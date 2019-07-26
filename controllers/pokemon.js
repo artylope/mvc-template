@@ -12,6 +12,13 @@ module.exports = (db) => {
       });
   };
 
+  let homeControllerCallback = (request, response) => {
+      db.students.getAll((error, students) => {
+        response.render('pokemon/index', { students });
+      });
+  };
+
+
 
   /**
    * ===========================================
@@ -20,6 +27,7 @@ module.exports = (db) => {
    */
   return {
     index: indexControllerCallback,
+    home: homeControllerCallback,
   };
 
 }

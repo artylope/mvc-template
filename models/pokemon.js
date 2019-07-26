@@ -9,7 +9,7 @@ module.exports = (dbPoolInstance) => {
 
   let getAll = (callback) => {
 
-    let query = 'SELECT * FROM pokemons';
+    let query = 'SELECT * FROM students';
 
     dbPoolInstance.query(query, (error, queryResult) => {
       if( error ){
